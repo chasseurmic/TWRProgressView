@@ -57,6 +57,7 @@ TWRProgressView exposes the following methods that let the user customize color,
 ## Demo
 
 Take a look at this video:
+
 [![TWRProgressView Demo](http://cocoahunter-blog.s3.amazonaws.com/TWRProgressView/TWRProgressView_Screenshot.png)](http://cocoahunter-blog.s3.amazonaws.com/TWRProgressView/TWRProgressView.mp4)
 
 ## Requirements

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "TWRProgressView"
-  s.version      = "0.1.0"
+  s.version      = "0.1"
   s.summary      = "A custom progress view to be used with masking images."
   s.homepage     = "https://github.com/chasseurmic/TWRProgressView"
   
