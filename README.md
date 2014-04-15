@@ -19,7 +19,7 @@ pod 'TWRProgressView'
 
 Run `pod install` to install the dependencies.
 
-Next, import the header file wherever you want to use the picker:
+Next, import the header file wherever you want to use the progress view:
 
 ```objc
 #import "TWRProgressView.h"
