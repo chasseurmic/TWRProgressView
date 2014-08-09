@@ -115,6 +115,10 @@
     [self setNeedsDisplay];
 }
 
+- (UIImage *)backColor {
+    return self.colors[0];
+}
+
 - (void)setFrontColor:(UIColor *)frontColor {
     NSMutableArray *currentColors = [self colors].mutableCopy;
     if (currentColors.count > 0) {
@@ -122,6 +126,10 @@
         [self setColors:currentColors];
     }
     [self setNeedsDisplay];
+}
+
+- (UIColor *)frontColor {
+    return self.colors[1];
 }
 
 - (void)setHorizontal:(BOOL)horizontal
