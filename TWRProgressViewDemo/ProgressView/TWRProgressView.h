@@ -17,16 +17,16 @@
 @property (nonatomic, readonly) CAGradientLayer *gradientLayer;
 
 // An Array of UIColors for the gradient
-@property (nonatomic, readwrite) NSArray *colors;
+@property (nonatomic, readwrite) NSArray *colors UI_APPEARANCE_SELECTOR;
 
 // Simple colors
-@property (nonatomic, readwrite) UIColor *backColor;
-@property (nonatomic, readwrite) UIColor *frontColor;
+@property (nonatomic, readwrite) UIColor *backColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, readwrite) UIColor *frontColor UI_APPEARANCE_SELECTOR;
 
 // Specifies that the gradient should be drawn horizontally
 @property (nonatomic, getter = isHorizontal) BOOL horizontal;
 
-@property (nonatomic, strong) UIImage *maskingImage;
+@property (nonatomic, strong) UIImage *maskingImage UI_APPEARANCE_SELECTOR;
 
 @property (nonatomic, assign) CGFloat progress;
 
