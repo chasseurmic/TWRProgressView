@@ -23,6 +23,8 @@
 		155E750D187E048E00AFCD05 /* ProgressViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 155E750C187E048E00AFCD05 /* ProgressViewTests.m */; };
 		155E7518187E049800AFCD05 /* TWRProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 155E7517187E049800AFCD05 /* TWRProgressView.m */; };
 		155E751A187E278700AFCD05 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155E7519187E278700AFCD05 /* QuartzCore.framework */; };
+		64A0073F1AC03842005C067C /* TWRExampleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A0073E1AC03842005C067C /* TWRExampleView.m */; };
+		64A007461AC03884005C067C /* TWRExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A007451AC03884005C067C /* TWRExampleViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,10 @@
 		155E7516187E049800AFCD05 /* TWRProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRProgressView.h; sourceTree = "<group>"; };
 		155E7517187E049800AFCD05 /* TWRProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRProgressView.m; sourceTree = "<group>"; };
 		155E7519187E278700AFCD05 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		64A0073D1AC03842005C067C /* TWRExampleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRExampleView.h; sourceTree = "<group>"; };
+		64A0073E1AC03842005C067C /* TWRExampleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRExampleView.m; sourceTree = "<group>"; };
+		64A007441AC03884005C067C /* TWRExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRExampleViewController.h; sourceTree = "<group>"; };
+		64A007451AC03884005C067C /* TWRExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRExampleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,14 +125,9 @@
 		155E74E7187E048E00AFCD05 /* ProgressView */ = {
 			isa = PBXGroup;
 			children = (
-				155E74F0187E048E00AFCD05 /* TWRAppDelegate.h */,
-				155E74F1187E048E00AFCD05 /* TWRAppDelegate.m */,
-				155E74F3187E048E00AFCD05 /* Main.storyboard */,
-				155E74F6187E048E00AFCD05 /* TWRViewController.h */,
-				155E74F7187E048E00AFCD05 /* TWRViewController.m */,
-				155E7516187E049800AFCD05 /* TWRProgressView.h */,
-				155E7517187E049800AFCD05 /* TWRProgressView.m */,
-				155E74F9187E048E00AFCD05 /* Images.xcassets */,
+				64A0073B1AC0369F005C067C /* ProgressView */,
+				64A0073A1AC03681005C067C /* Example */,
+				64A0073C1AC036AD005C067C /* Resources */,
 				155E74E8187E048E00AFCD05 /* Supporting Files */,
 			);
 			path = ProgressView;
@@ -159,6 +160,71 @@
 				155E7509187E048E00AFCD05 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		64A0073A1AC03681005C067C /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				155E74F0187E048E00AFCD05 /* TWRAppDelegate.h */,
+				155E74F1187E048E00AFCD05 /* TWRAppDelegate.m */,
+				155E74F3187E048E00AFCD05 /* Main.storyboard */,
+				64A007411AC0384C005C067C /* Controllers */,
+			);
+			name = Example;
+			sourceTree = "<group>";
+		};
+		64A0073B1AC0369F005C067C /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				155E7516187E049800AFCD05 /* TWRProgressView.h */,
+				155E7517187E049800AFCD05 /* TWRProgressView.m */,
+			);
+			name = ProgressView;
+			sourceTree = "<group>";
+		};
+		64A0073C1AC036AD005C067C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				155E74F9187E048E00AFCD05 /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		64A007401AC03846005C067C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				64A0073D1AC03842005C067C /* TWRExampleView.h */,
+				64A0073E1AC03842005C067C /* TWRExampleView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		64A007411AC0384C005C067C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				64A007431AC0385F005C067C /* StoryboardViewController */,
+				64A007421AC03852005C067C /* CodeViewController */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		64A007421AC03852005C067C /* CodeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				64A007401AC03846005C067C /* Views */,
+				64A007441AC03884005C067C /* TWRExampleViewController.h */,
+				64A007451AC03884005C067C /* TWRExampleViewController.m */,
+			);
+			name = CodeViewController;
+			sourceTree = "<group>";
+		};
+		64A007431AC0385F005C067C /* StoryboardViewController */ = {
+			isa = PBXGroup;
+			children = (
+				155E74F6187E048E00AFCD05 /* TWRViewController.h */,
+				155E74F7187E048E00AFCD05 /* TWRViewController.m */,
+			);
+			name = StoryboardViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +326,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				155E74F8187E048E00AFCD05 /* TWRViewController.m in Sources */,
+				64A007461AC03884005C067C /* TWRExampleViewController.m in Sources */,
+				64A0073F1AC03842005C067C /* TWRExampleView.m in Sources */,
 				155E7518187E049800AFCD05 /* TWRProgressView.m in Sources */,
 				155E74F2187E048E00AFCD05 /* TWRAppDelegate.m in Sources */,
 				155E74EE187E048E00AFCD05 /* main.m in Sources */,
@@ -471,6 +539,7 @@
 				155E7512187E048E00AFCD05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		155E7513187E048E00AFCD05 /* Build configuration list for PBXNativeTarget "ProgressViewTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +548,7 @@
 				155E7515187E048E00AFCD05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

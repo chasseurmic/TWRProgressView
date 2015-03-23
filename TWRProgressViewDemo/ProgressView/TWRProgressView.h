@@ -14,21 +14,40 @@
     CGFloat _animationTime;
 }
 
+/**
+ * Gradient layer applied to view.
+ */
 @property (nonatomic, readonly) CAGradientLayer *gradientLayer;
 
-// An Array of UIColors for the gradient
-@property (nonatomic, readwrite) NSArray *colors UI_APPEARANCE_SELECTOR;
+/**
+ * An Array of UIColors for the gradient.
+ */
+@property (nonatomic) NSArray *colors UI_APPEARANCE_SELECTOR;
 
-// Simple colors
-@property (nonatomic, readwrite) UIColor *backColor UI_APPEARANCE_SELECTOR;
-@property (nonatomic, readwrite) UIColor *frontColor UI_APPEARANCE_SELECTOR;
+/**
+ * Color of 'empty' part of the progress.
+ */
+@property (nonatomic) UIColor *backColor UI_APPEARANCE_SELECTOR;
 
-// Specifies that the gradient should be drawn horizontally
-@property (nonatomic, getter = isHorizontal) BOOL horizontal;
+/**
+ * Color of 'filled' part of the progress.
+ */
+@property (nonatomic) UIColor *frontColor UI_APPEARANCE_SELECTOR;
 
-@property (nonatomic, strong) UIImage *maskingImage UI_APPEARANCE_SELECTOR;
+/**
+ * Specifies that the gradient should be drawn horizontally.
+ */
+@property (nonatomic) BOOL horizontal;
 
-@property (nonatomic, assign) CGFloat progress;
+/**
+ * The mask image, where progress is applied.
+ */
+@property (nonatomic) UIImage *maskingImage UI_APPEARANCE_SELECTOR;
+
+/**
+ * Percentage of which the view is filled from the bottom (0%) to top (100%).
+ */
+@property (nonatomic) CGFloat progress;
 
 + (instancetype)progressViewWithFrame:(CGRect)frame andMaskingImage:(UIImage *)maskingImage;
 - (instancetype)initWithFrame:(CGRect)frame andMaskingImage:(UIImage *)maskingImage;
