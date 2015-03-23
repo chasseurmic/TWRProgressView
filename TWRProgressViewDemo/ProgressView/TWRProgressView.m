@@ -14,15 +14,17 @@
 
 @implementation TWRProgressView
 
+#pragma mark - Class methods
+
 + (instancetype)progressViewWithFrame:(CGRect)frame andMaskingImage:(UIImage *)maskingImage {
     return [[self alloc] initWithFrame:frame andMaskingImage:maskingImage];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+#pragma mark - Memory management
+
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
         [self commonInit];
     }
     return self;
@@ -36,10 +38,9 @@
     return self;
 }
 
--(instancetype)initWithCoder:(NSCoder *)aDecoder {
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
         [self commonInit];
     }
     return self;
@@ -52,21 +53,27 @@
     [self setColors:@[[UIColor grayColor], [UIColor redColor]]];
 }
 
+#pragma mark - Layout
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    [self maskView:self];
+}
+
 #pragma mark - Layer
 
-+ (Class)layerClass
-{
++ (Class)layerClass {
     return [CAGradientLayer class];
 }
 
-- (CAGradientLayer *)gradientLayer
-{
+- (CAGradientLayer *)gradientLayer {
     return (CAGradientLayer *)self.layer;
 }
 
 - (void)maskView:(UIView *)viewToBeMasked {
     // Won't work with jpg
-    UIImage* imageWithAlphaChannel = _maskingImage; //[UIImage imageNamed:@"document_icon"];
+    UIImage* imageWithAlphaChannel = _maskingImage;
     CGImageRef cgImageWithAlpha = [imageWithAlphaChannel CGImage];
     CALayer* maskingLayer = [CALayer layer];
     maskingLayer.contents = (__bridge id)cgImageWithAlpha;
@@ -80,13 +87,7 @@
 
 #pragma mark - Properties settings
 
-- (void)setMaskingImage:(UIImage *)maskingImage {
-    _maskingImage = maskingImage;
-    [self maskView:self];
-}
-
-- (void)setColors:(NSArray *)colors
-{
+- (void)setColors:(NSArray *)colors {
     NSMutableArray *cgColors = [NSMutableArray arrayWithCapacity:colors.count];
     for (UIColor *color in colors) {
         [cgColors addObject:(id)[color CGColor]];
@@ -95,11 +96,9 @@
     self.gradientLayer.colors = cgColors;
 }
 
-- (NSArray *)colors
-{
+- (NSArray *)colors {
     NSMutableArray *uiColors = [NSMutableArray arrayWithCapacity:self.gradientLayer.colors.count];
-    for (id color in self.gradientLayer.colors)
-    {
+    for (id color in self.gradientLayer.colors) {
         [uiColors addObject:[UIColor colorWithCGColor:(CGColorRef)color]];
     }
     
@@ -109,7 +108,7 @@
 - (void)setBackColor:(UIColor *)backColor {
     NSMutableArray *currentColors = [self colors].mutableCopy;
     if (currentColors.count > 0) {
-        [currentColors replaceObjectAtIndex:0 withObject:backColor];
+        currentColors[0] = backColor;
         [self setColors:currentColors];
     }
     [self setNeedsDisplay];
@@ -122,7 +121,7 @@
 - (void)setFrontColor:(UIColor *)frontColor {
     NSMutableArray *currentColors = [self colors].mutableCopy;
     if (currentColors.count > 0) {
-        [currentColors replaceObjectAtIndex:1 withObject:frontColor];
+        currentColors[1] = frontColor;
         [self setColors:currentColors];
     }
     [self setNeedsDisplay];
@@ -132,14 +131,12 @@
     return self.colors[1];
 }
 
-- (void)setHorizontal:(BOOL)horizontal
-{
+- (void)setHorizontal:(BOOL)horizontal {
     self.gradientLayer.startPoint = horizontal ? HORIZONTAL_START_POINT : VERTICAL_START_POINT;
     self.gradientLayer.endPoint   = horizontal ? HORIZONTAL_END_POINT : VERTICAL_END_POINT;
 }
 
-- (BOOL)isHorizontal
-{
+- (BOOL)isHorizontal {
     return (CGPointEqualToPoint(self.gradientLayer.startPoint, HORIZONTAL_START_POINT)) && (CGPointEqualToPoint(self.gradientLayer.endPoint, HORIZONTAL_END_POINT));
 }
 
@@ -149,13 +146,11 @@
 
 #pragma mark - Progress
 
-- (void)setProgress:(CGFloat)progress
-{
+- (void)setProgress:(CGFloat)progress {
     [self setProgress:progress animated:NO];
 }
 
-- (void)setProgress:(CGFloat)progress animated:(BOOL)animated
-{
+- (void)setProgress:(CGFloat)progress animated:(BOOL)animated {
     CGFloat normalizedProgress = 1 - MIN(MAX(progress, 0.f), 1.f);
     NSArray* newLocations = @[@(normalizedProgress), @(normalizedProgress)];
     

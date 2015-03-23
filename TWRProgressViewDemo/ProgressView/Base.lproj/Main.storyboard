@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="TWRViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TWRMainStoryboard" id="vXZ-lx-hvc" customClass="TWRViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c6k-DY-kze"/>
                         <viewControllerLayoutGuide type="bottom" id="Pbf-xd-nl4"/>
@@ -17,13 +18,18 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="416-YQ-gAc" customClass="TWRProgressView">
-                                <rect key="frame" x="85" y="283" width="150" height="150"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <rect key="frame" x="85" y="227" width="150" height="150"/>
                                 <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="HXp-vB-UEH"/>
+                                    <constraint firstAttribute="width" constant="150" id="vgX-xU-59B"/>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lP-ah-ayZ">
-                                <rect key="frame" x="126" y="457" width="69" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lP-ah-ayZ">
+                                <rect key="frame" x="126" y="385" width="69" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="MhE-3H-Mcm"/>
+                                </constraints>
                                 <state key="normal" title="Increment">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -31,9 +37,26 @@
                                     <action selector="increment:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="yQd-KH-aDz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdE-2g-N3e">
-                                <rect key="frame" x="123" y="500" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0tZ-j6-GZx" customClass="TWRProgressView">
+                                <rect key="frame" x="85" y="28" width="150" height="150"/>
+                                <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="ZfF-4M-iWA"/>
+                                    <constraint firstAttribute="width" constant="150" id="a0f-89-VEN"/>
+                                </constraints>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0rI-3F-Jug">
+                                <rect key="frame" x="18" y="186" width="284" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="WtM-07-o7z"/>
+                                    <constraint firstAttribute="width" constant="280" id="mnj-Y2-R40"/>
+                                </constraints>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdE-2g-N3e">
+                                <rect key="frame" x="123" y="423" width="75" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="KH7-zb-Qx0"/>
+                                </constraints>
                                 <state key="normal" title="Decrement">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -41,22 +64,19 @@
                                     <action selector="decrement:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cYX-rI-V0A"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0tZ-j6-GZx" customClass="TWRProgressView">
-                                <rect key="frame" x="85" y="55" width="150" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0rI-3F-Jug">
-                                <rect key="frame" x="18" y="213" width="284" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="416-YQ-gAc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="85" id="9UZ-51-MXo"/>
-                            <constraint firstAttribute="bottom" secondItem="416-YQ-gAc" secondAttribute="bottom" constant="135" id="SgL-gY-DuL"/>
-                            <constraint firstAttribute="trailing" secondItem="416-YQ-gAc" secondAttribute="trailing" constant="85" id="X09-ai-G3L"/>
-                            <constraint firstItem="416-YQ-gAc" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="283" id="Z7r-Fw-u1n"/>
+                            <constraint firstItem="VdE-2g-N3e" firstAttribute="top" secondItem="5lP-ah-ayZ" secondAttribute="bottom" constant="8" id="1C9-py-9TA"/>
+                            <constraint firstItem="0tZ-j6-GZx" firstAttribute="top" secondItem="c6k-DY-kze" secondAttribute="bottom" constant="8" id="CJC-1J-5v0"/>
+                            <constraint firstAttribute="centerX" secondItem="416-YQ-gAc" secondAttribute="centerX" id="Hmp-QJ-QpD"/>
+                            <constraint firstAttribute="centerX" secondItem="0tZ-j6-GZx" secondAttribute="centerX" id="KFq-va-Dsy"/>
+                            <constraint firstAttribute="centerX" secondItem="VdE-2g-N3e" secondAttribute="centerX" id="OAO-cm-n2m"/>
+                            <constraint firstItem="5lP-ah-ayZ" firstAttribute="top" secondItem="416-YQ-gAc" secondAttribute="bottom" constant="8" id="Obd-c1-CLa"/>
+                            <constraint firstItem="0rI-3F-Jug" firstAttribute="top" secondItem="0tZ-j6-GZx" secondAttribute="bottom" constant="8" id="XPz-F9-7Yo"/>
+                            <constraint firstAttribute="centerX" secondItem="5lP-ah-ayZ" secondAttribute="centerX" id="XWT-9P-38o"/>
+                            <constraint firstItem="416-YQ-gAc" firstAttribute="top" secondItem="0rI-3F-Jug" secondAttribute="bottom" constant="8" id="ijM-FS-Pcq"/>
+                            <constraint firstAttribute="centerX" secondItem="0rI-3F-Jug" secondAttribute="centerX" id="lRn-Vn-swe"/>
                         </constraints>
                     </view>
                     <connections>

@@ -7,12 +7,26 @@
 //
 
 #import "TWRAppDelegate.h"
+#import "TWRExampleViewController.h"
 
 @implementation TWRAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // create the window
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window setBackgroundColor:[UIColor whiteColor]];
+    [self.window makeKeyAndVisible];
+    
+    // set root controllers
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *storyboardViewController = [storyboard instantiateViewControllerWithIdentifier:@"TWRMainStoryboard"];
+    UIViewController *codeViewController = [[TWRExampleViewController alloc] init];
+    
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    [tabBarController setViewControllers:@[storyboardViewController, codeViewController]];
+    [self.window setRootViewController:tabBarController];
+    
+    // finish launching
     return YES;
 }
 							
